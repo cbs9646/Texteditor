@@ -59,10 +59,14 @@ module.exports = () => {
           use: {
             loader: "babel-loader",
             options: {
-              presets: 
-            }
-          }
-        }
+              presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-oject-rest-spread",
+                "@babel/transform-runtime",
+              ],
+            },
+          },
+        },
       ],
     },
   };
