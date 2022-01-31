@@ -7,6 +7,8 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 // TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
+
+  console.log(path.resolve(__dirname, 'dist'))
   return {
     mode: 'development',
     entry: {
@@ -18,14 +20,14 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        template: "./index.html",
-        title: "JATE",
-      }),
-
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
+      }), 
+      
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        title: "JATE",
       }),
 
       new WebpackPwaManifest({
